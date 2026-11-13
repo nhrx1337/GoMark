@@ -20,7 +20,7 @@ up on the fly, no restart needed.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/nrhx1337/GoMark.git
+git clone https://github.com/nhrx1337/GoMark.git
 
 cd GoMark
 ```
