@@ -48,6 +48,28 @@ go build -o gomark .
 ./gomark
 ```
 
+## Docker
+
+Build the image:
+
+```bash
+docker build -t gomark .
+```
+
+Run the container:
+
+```bash
+docker run -p 8080:8080 -v "$PWD/posts:/app/posts" gomark
+```
+
+The blog is now available at http://localhost:8080. Mounting the `posts/`
+directory keeps automatic reload working for local edits. Configuration can be
+overridden with environment variables:
+
+```bash
+docker run -p 3000:3000 -e BLOG_ADDR=":3000" -v "$PWD/posts:/app/posts" gomark
+```
+
 ## Configuration
 
 The server is configured with flags or environment variables:
@@ -115,6 +137,7 @@ GoMark/
 ├── templates/
 │   └── page.html            # single embedded template
 ├── posts/                   # your Markdown posts
+├── Dockerfile               # multi-stage production image
 ├── go.mod
 └── go.sum
 ```
